@@ -23,15 +23,8 @@ i_have_plans_for(R) :- role_goal(R, G) & can_achieve(G).
 
 /* Plans */
 
-+!start : true <-
-    .print("hello world.");
-    ?i_have_plans_for(my_role2);
-    .print("Yoohooo!").
-
-
-// { include("$jacamoJar/templates/common-cartago.asl") }
-// { include("$jacamoJar/templates/common-moise.asl") }
-
-// uncomment the include below to have an agent compliant with its organisation
-// { include("$moiseJar/asl/org-obedient.asl") }
-// { include("$moiseJar/asl/org-rules.asl") }
++!start : true
+  <- .print("hello world.");
+     ?i_have_plans_for(my_role2);
+     .print("Yoohooo!");
+  .
