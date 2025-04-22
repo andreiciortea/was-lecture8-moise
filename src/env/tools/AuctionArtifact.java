@@ -16,7 +16,8 @@ public class AuctionArtifact extends Artifact {
         defineObsProperty("winner",      new Atom(currentWinner)); // Atom is a Jason type
     }
 
-    @OPERATION public void start(String task)  {
+    @OPERATION
+    public void start(String task)  {
         if (getObsProperty("running").stringValue().equals("yes"))
             failed("The protocol is already running and so you cannot start it!");
 
@@ -24,7 +25,8 @@ public class AuctionArtifact extends Artifact {
         getObsProperty("running").updateValue("yes");
     }
 
-    @OPERATION public void stop()  {
+    @OPERATION
+    public void stop()  {
         if (! getObsProperty("running").stringValue().equals("yes"))
             failed("The protocol is not running, why to stop it?!");
 
@@ -32,7 +34,8 @@ public class AuctionArtifact extends Artifact {
         getObsProperty("winner").updateValue(new Atom(currentWinner));
     }
 
-    @OPERATION public void bid(double bidValue) {
+    @OPERATION
+    public void bid(double bidValue) {
         if (getObsProperty("running").stringValue().equals("no"))
             failed("You can not bid for this auction, it is not running!");
 

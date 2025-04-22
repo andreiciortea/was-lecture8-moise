@@ -1,7 +1,4 @@
-// Agent sample_agent in project moise_tutorial
-
 /* Initial beliefs and rules */
-
 
 /* Initial goals */
 
@@ -19,9 +16,9 @@
     joinWorkspace(marketplace_wksp, WkspId);
     makeArtifact(marketplace_org, "ora4mas.nopl.OrgBoard", ["src/org/auction-os.xml"], OrgArtId);
     focus(OrgArtId);
-    createGroup(movie_auctions_group, auctionGroup, GrArtId);
+    createGroup(movie_auction_group, auctionGroup, GrArtId);
     focus(GrArtId);
-    .broadcast(tell, marketplace(marketplace_wksp, marketplace_org, movie_auctions_group)).
+    .broadcast(tell, marketplace(marketplace_wksp, marketplace_org, movie_auction_group)).
 
 { include("$jacamoJar/templates/common-cartago.asl") }
 

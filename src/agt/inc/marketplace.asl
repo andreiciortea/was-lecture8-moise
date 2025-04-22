@@ -2,11 +2,11 @@ role_goal(R, G) :-
     role_mission(R, _, M) & 
     mission_goal(M, G).
 
-has_plans_for(G) :-
+can_achieve(G) :-
     .relevant_plans({+!G[scheme(_)]}, LP) & LP \== [].
 
 i_have_plans_for(R) :-
-    not (role_goal(R, G) & not has_plans_for(G)).
+    not (role_goal(R, G) & not can_achieve(G)).
 
 my_role(R) :-
     role(R, _) & i_have_plans_for(R).

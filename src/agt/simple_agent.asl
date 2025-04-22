@@ -1,11 +1,21 @@
 /* Initial beliefs and rules */
-role_goal(my_role, g1).
-role_goal(my_role, g2).
-role_goal(my_role, g3).
 
-has_plans_for(G) :- G == g1 | G == g2 | G == g3.
+// All the goals relevant for role1
+role_goal(my_role1, g1).
+role_goal(my_role1, g2).
 
-i_have_plans_for(R) :- not (role_goal(R, G) & not has_plans_for(G)).
+// All the goals relevant for role2
+role_goal(my_role2, g1).
+role_goal(my_role2, g2).
+role_goal(my_role2, g3).
+
+can_achieve(G) :- G == g1 | G == g2 .
+
+// Incorrect implementation (will return true if at least one goal matches):
+i_have_plans_for(R) :- role_goal(R, G) & can_achieve(G).
+
+// Correct implementation (will return true if all goals match):
+// i_have_plans_for(R) :- not (role_goal(R, G) & not can_achieve(G)).
 
 /* Initial goals */
 
@@ -15,7 +25,9 @@ i_have_plans_for(R) :- not (role_goal(R, G) & not has_plans_for(G)).
 
 +!start : true <-
     .print("hello world.");
-    ?i_have_plans_for(my_role).
+    ?i_have_plans_for(my_role2);
+    .print("Yoohooo!").
+
 
 // { include("$jacamoJar/templates/common-cartago.asl") }
 // { include("$jacamoJar/templates/common-moise.asl") }
