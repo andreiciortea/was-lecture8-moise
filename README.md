@@ -4,14 +4,8 @@
 
 2. Run the JaCaMo application with the organization config. Show what happens.
 
-3. Show the code for setting up the marketplace manually.
+3. Modify the organization specification ("the organization specification is the program").
 
-- Show the code of `marketplace_manager`
-- Uncomment roles and include statement for `org_reasoning`
-
-4. Modify mission cardinality to show normative failure.
+4. Discuss the code for setting up the marketplace manually.
 
 5. Show and discuss organizational reasoning.
-
-- check if an agent can enact a given role
-- infer the role
